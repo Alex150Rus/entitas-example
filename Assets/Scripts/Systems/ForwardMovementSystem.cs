@@ -2,12 +2,14 @@ using Entitas;
 using System.Collections.Generic;
 using UnityEngine;
 
+//система реализует движение вперёд
 public class ForwardMovementSystem : IExecuteSystem
 {
     IGroup<GameEntity> entities;
 
     public ForwardMovementSystem(Contexts contexts)
     {
+        //сущности, у которых есть все 3 компонента. Если одного из них нет, то система не будет обрабатывать эту сущность
         entities = contexts.game.GetGroup(GameMatcher.AllOf(
             GameMatcher.ForwardMovement,
             GameMatcher.Position,
