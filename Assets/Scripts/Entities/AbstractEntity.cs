@@ -17,6 +17,8 @@ public abstract class AbstractEntity : MonoBehaviour
         entity = contexts.game.CreateEntity();
         entity.AddPosition(transform.position);
         entity.AddRotation(transform.rotation.eulerAngles.z);
+        //удаляем GO в сцене, так как он временный, для настройки игры. Существует до того момента,
+        //как мы создадим настойший entity в ECS
         Destroy(gameObject);
     }
 }

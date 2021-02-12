@@ -18,7 +18,9 @@ public class ForwardMovementSystem : IExecuteSystem
     {
         foreach (var e in entities) {
             var angle = e.rotation.angle * Mathf.Deg2Rad;
+            //направление движения
             var dir = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle));
+            //ReplacePosition делает Remove а потом Add Position
             e.ReplacePosition(e.position.value + dir * e.forwardMovement.speed * Time.deltaTime);
         }
     }

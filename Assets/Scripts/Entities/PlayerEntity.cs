@@ -10,7 +10,7 @@ public class PlayerEntity : AbstractEntity
 
     protected override void Start()
     {
-        //вызываем метод из AnstractEntity, который создаст entity и контексты
+        //вызываем метод из AnstractEntity, который создаст entity, контексты и компоненты
         base.Start();
         //добавляем в entity компонент Player (к go Добавляем компонент)
         entity.isPlayer = true;

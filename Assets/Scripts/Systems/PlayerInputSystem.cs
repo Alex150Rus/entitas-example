@@ -2,8 +2,10 @@ using Entitas;
 using System.Collections.Generic;
 using UnityEngine;
 
+//обычная execute система. Выполняется каждый кадр
 public class PlayerInputSystem : IExecuteSystem
 {
+    //надо вынести в Scriptable Object
     const float MoveSpeed = 10.0f;
     const float RotateSpeed = 120.0f;
     const float ShotSpeed = 20.0f;
@@ -14,6 +16,7 @@ public class PlayerInputSystem : IExecuteSystem
     public PlayerInputSystem(Contexts contexts)
     {
         this.contexts = contexts;
+        //система будет оперировать сущносятми с компонентом Player
         entities = contexts.game.GetGroup(GameMatcher.Player);
     }
 
@@ -28,6 +31,7 @@ public class PlayerInputSystem : IExecuteSystem
             if (Input.GetKey(KeyCode.S))
                 positionDelta -= 1.0f;
 
+            //если была нажата кнопка, мы рассчитываем направление движения и идём в сторону, в которую смотрит игрок
             if (!Mathf.Approximately(positionDelta, 0.0f)) {
                 if (e.hasForwardMovement)
                     e.ReplaceForwardMovement(MoveSpeed * positionDelta);
