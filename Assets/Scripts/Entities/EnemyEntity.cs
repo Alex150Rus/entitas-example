@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Сущность (Entity) не содержит данных или кода, лишь объединяет набор компонентов. GameObject
 public class EnemyEntity : AbstractEntity
 {
     public GameObject prefab;
